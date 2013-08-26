@@ -444,9 +444,11 @@ component
 		required any values
 		) {
 
-		for ( var value in values ) {
+		// NOTE: We are using an index-loop here since ColdFusion 9 doesn't seem to want
+		// to iterate over Java arrays with a for-in loop.
+		for ( var i = 1 ; i <= arrayLen( values ) ; i++ ) {
 
-			collection.add( value );
+			collection.add( values[ i ] );
 
 		}
 
