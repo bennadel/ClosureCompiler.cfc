@@ -204,15 +204,9 @@ component
 
 		// If the input delimiter is valid, then make sure to turn the feature on. If not,
 		// turn the feature off.
-		if ( len( inputDelimiter ) ) {
-
-			compilerOptions.setPrintInputDelimiter( javaCast( "boolean", true ) );
-
-		} else {
-
-			compilerOptions.setPrintInputDelimiter( javaCast( "boolean", false ) );
-
-		}
+		compilerOptions.setPrintInputDelimiter( 
+			javaCast( "boolean", !! len( inputDelimiter ) ) 
+		);
 
 		compilerOptions.setInputDelimiter( javaCast( "string", inputDelimiter ) );
 
