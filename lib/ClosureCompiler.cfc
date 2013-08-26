@@ -94,6 +94,34 @@ component
 	}
 
 
+	// I add all the JavaScript files in the given directory (that match the given regex 
+	// pattern) to the list of files to compile. The directory is searched recursively.
+	// --
+	// NOTE: Supports POSIX regular expression patterns.
+	public any function addJavaScriptDirectory(
+		required string directoryPath,
+		string pattern = "\.js$"
+		) {
+
+		var files = directoryList( directoryPath, true, "path" );
+
+		// Add each file that matches the given pattern. Only check the filename, not
+		// the entire path to the file.
+		for ( var filepath in files ) {
+
+			if ( reFind( pattern, getFileFromPath( filepath ) ) ) {
+
+				addJavaScriptFile( filepath );
+
+			}
+
+		}
+
+		return( this );
+
+	}
+
+
 	// I add the given filepath to the list of files to compile.
 	public any function addJavaScriptFile( required string filepath ) {
 
