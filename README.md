@@ -57,6 +57,13 @@ off compilation options based on levels of aggressiveness:
 These methods are meant to be used independently; you wouldn't want to call 
 more than one of these three methods for any particular compilation event. 
 
+## Comments In The Code
+
+The Closure Compiler was not the easiest thing to understand; as such, I have 
+been very liberal with the comments inside of the ClosureCompiler.cfc in an 
+attempt to clarify how the methods work and how they interact with the 
+underlying Java methods. 
+
 ## Using An External Class Loader
 
 While most of the examples in this project assume that the Google Closure 
