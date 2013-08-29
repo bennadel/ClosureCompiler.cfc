@@ -3,7 +3,7 @@
 component
 	extends = "lib.ClosureCompiler"
 	output = false
-	hint = "I extend the core Closure Compiler, but define the Java objects using a class loader."
+	hint = "I extend the core Closure Compiler facade, but I define the Java objects using the JavaLoader class loader."
 	{
 
 		// I return the initialized component.
@@ -12,7 +12,7 @@ component
 		// Store the class-loader - it will be used to create the Java objects within the Google
 		// Closure Compiler library.
 		// --
-		// NOTE: This has to be called before the super-init since the Java classes are loaded 
+		// NOTE: This has to be called BEFORE the super-init since the Java classes are loaded 
 		// within the body of the init method.
 		variables.classLoader = classLoader;
 
